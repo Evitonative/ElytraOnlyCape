@@ -13,9 +13,6 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v6
         
-      - name: validate gradle wrapper
-        uses: gradle/actions/wrapper-validation@v6
-        
       - name: setup jdk
         uses: actions/setup-java@v5
         with:
@@ -23,11 +20,13 @@ jobs:
           distribution: 'microsoft'
           cache: 'gradle'
           
-      - name: make gradle wrapper executable
-        run: chmod +x ./gradlew
+      - name: setup gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: '9.4.1'
         
       - name: build
-        run: ./gradlew build
+        run: gradle build
         
       - name: capture build artifacts
         uses: actions/upload-artifact@v7
