@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "elytra_only_cape",
+  "version": "${version}",
+  "name": "Elytra Only Cape",
+  "description": "Only show your cape when wearing an elytra.",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "environment": "client",
+  "entrypoints": { },
+  "mixins": [
+    "elytra_only_cape.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
