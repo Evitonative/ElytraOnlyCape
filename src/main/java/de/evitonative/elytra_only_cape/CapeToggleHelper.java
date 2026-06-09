@@ -5,6 +5,7 @@ import de.evitonative.elytra_only_cape.config.FallbackMode;
 import de.evitonative.elytra_only_cape.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
+import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.world.entity.player.PlayerModelPart;
 
 public class CapeToggleHelper {
@@ -28,7 +29,7 @@ public class CapeToggleHelper {
 
     /// @return false if the cape should be enabled by the normal logic, if false the fallback cape was enabled if required
     public static boolean fallbackHandling() {
-        if (isActiveInEnvironment()) return false;
+        if (isModActiveInEnvironment()) return false;
 
         FallbackMode fallbackMode = ModConfig.instance.fallbackMode;
         if (fallbackMode == FallbackMode.KEEP) return true;
@@ -38,15 +39,30 @@ public class CapeToggleHelper {
         return true;
     }
 
-    public static boolean isActiveInEnvironment() {
-        if (ModConfig.instance.modActiveEnvironment == ActiveEnvironment.ANY)
-            return true;
+    public static boolean isModActiveInEnvironment() {
+        ActiveEnvironment env = ModConfig.instance.modActiveEnvironment;
+
+        if (env == ActiveEnvironment.NONE)
+            return false;
 
         Minecraft minecraft = Minecraft.getInstance();
         boolean isInMenu = minecraft.player == null;
-        boolean isActiveSinglePlayer = minecraft.isSingleplayer() && !isInMenu;
-        boolean isModEnabledOnlySinglePlayer = ModConfig.instance.modActiveEnvironment == ActiveEnvironment.SINGLEPLAYER;
+        boolean isSinglePlayer = minecraft.isSingleplayer() && !isInMenu;
 
-        return isActiveSinglePlayer && isModEnabledOnlySinglePlayer;
+        if (isSinglePlayer) return true;
+        if (env == ActiveEnvironment.SINGLEPLAYER) return false;
+
+        ServerData currentServer = minecraft.getCurrentServer();
+        if (currentServer == null) return false; // this should be impossible, but make the linter happy
+
+        String currentIp = currentServer.ip.toLowerCase();
+
+        if (ModConfig.instance.serverBlacklist.stream()
+                .anyMatch(ip -> ip.toLowerCase().equals(currentIp))) return false;
+
+        if (!ModConfig.instance.serverWhitelistEnabled) return true;
+
+        return ModConfig.instance.serverWhitelist.stream()
+                .anyMatch(ip -> ip.toLowerCase().equals(currentIp));
     }
 }

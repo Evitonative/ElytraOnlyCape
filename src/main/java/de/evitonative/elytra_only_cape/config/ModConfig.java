@@ -6,6 +6,8 @@ import de.evitonative.elytra_only_cape.ElytraOnlyCape;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ModConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -15,6 +17,9 @@ public class ModConfig {
     public ActiveEnvironment modActiveEnvironment = ActiveEnvironment.ANY;
     public boolean invertBehaviour = false;
     public FallbackMode fallbackMode = FallbackMode.SHOW;
+    public boolean serverWhitelistEnabled = true;
+    public List<String> serverWhitelist = new LinkedList<>();
+    public List<String> serverBlacklist = new LinkedList<>();
 
     public boolean alwaysShowVanillaButton = false;
 

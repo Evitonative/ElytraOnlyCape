@@ -35,7 +35,7 @@ public class SkinCustomizationScreenMixin {
         if (part != PlayerModelPart.CAPE) return;
 
         if (ModConfig.instance.alwaysShowVanillaButton) return;
-        if (ModConfig.instance.fallbackMode == FallbackMode.KEEP && !CapeToggleHelper.isActiveInEnvironment()) return;
+        if (ModConfig.instance.fallbackMode == FallbackMode.KEEP && !CapeToggleHelper.isModActiveInEnvironment()) return;
 
         AbstractWidget widget = widgets.getLast();
         widget.active = false;

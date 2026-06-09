@@ -4,8 +4,17 @@
   "version": "${version}",
   "name": "Elytra Only Cape",
   "description": "Only show your cape when wearing an elytra.",
-  "authors": [],
-  "contact": {},
+  "authors": [
+    {
+      "name": "Evitonative"
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/project/elytra-only-cape",
+    "sources": "https://github.com/evitonative/elytra-only-cape",
+    "issues": "https://github.com/evitonative/elytra-only-cape/issues"
+  },
+  "icon": "icon.png",
   "license": "GPL-3.0",
   "environment": "client",
   "entrypoints": {

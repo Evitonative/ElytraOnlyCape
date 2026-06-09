@@ -13,7 +13,14 @@
   "elytra_only_cape.config.fallback.option.show": "Always Show Cape",
   "elytra_only_cape.config.fallback.option.hide": "Always Hide Cape",
   "elytra_only_cape.config.fallback.option.keep": "Use Vanilla Menu",
+  "elytra_only_cape.config.whitelist_enabled.title": "Enable Server Whitelist",
+  "elytra_only_cape.config.whitelist_enabled.description": "Only enable the mod for whitelisted servers.",
+  "elytra_only_cape.config.whitelist.title": "Server Whitelist",
+  "elytra_only_cape.config.whitelist.description": "When the whitelist is enabled, the mod will only work on servers with these IP addresses or domains.",
+  "elytra_only_cape.config.blacklist.title": "Server Blacklist",
+  "elytra_only_cape.config.blacklist.description": "Server IPs and domains on this list will never have the mod enabled.",
   "elytra_only_cape.config.advanced.title": "Advanced Options",
+  "elytra_only_cape.config.advanced.description": "If you don't know what you are doing, you probably shouldn't change these.",
   "elytra_only_cape.config.advanced.vanilla_button_enabled.title": "Always Enable Vanilla Toggle",
   "elytra_only_cape.config.advanced.vanilla_button_enabled.description": "Always allow switching the cape with the vanilla cape toggle in the skin customisation. This is disabled by default because this mod will override it anytime you join a world or change your chest slot."
 }
