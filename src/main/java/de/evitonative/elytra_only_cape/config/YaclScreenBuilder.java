@@ -88,7 +88,7 @@ public class YaclScreenBuilder {
                                 Component.translatable("elytra_only_cape.config.whitelist_enabled.description"))
                         )
                         .binding(
-                                true,
+                                false,
                                 () -> ModConfig.instance.serverWhitelistEnabled,
                                 newVal -> ModConfig.instance.serverWhitelistEnabled = newVal
                         )
