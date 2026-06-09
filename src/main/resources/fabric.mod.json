@@ -8,12 +8,23 @@
   "contact": {},
   "license": "GPL-3.0",
   "environment": "client",
-  "entrypoints": { },
+  "entrypoints": {
+    "main" : [
+      "de.evitonative.elytra_only_cape.ElytraOnlyCape"
+    ],
+    "modmenu": [
+      "de.evitonative.elytra_only_cape.config.ModMenuIntegration"
+    ]
+  },
   "mixins": [
     "elytra_only_cape.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}"
+    "minecraft": ">=${minecraft_version}"
+  },
+  "recommend": {
+    "modmenu": ">=${modmenu_version}",
+    "yet_another_config_lib_v3": ">=${yacl_version}"
   }
 }

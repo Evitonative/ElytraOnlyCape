@@ -1,3 +1,19 @@
 {
-  "tooltip.elytra_only_cape.disabled_button": "Please use the Elytra Only Cape Mod configuration instead."
+  "elytra_only_cape.vanilla_button.tooltip": "Please use the Elytra Only Cape Mod configuration instead.",
+  "elytra_only_cape.config.title": "Elytra Only Cape Configuration",
+  "elytra_only_cape.config.mode_mode.title": "Mod Enabled",
+  "elytra_only_cape.config.mode_mode.description": "When should the cape be automatically changed?",
+  "elytra_only_cape.config.mode_mode.option.any": "Always",
+  "elytra_only_cape.config.mode_mode.option.singleplayer": "Singleplayer Only",
+  "elytra_only_cape.config.mode_mode.option.none": "Never",
+  "elytra_only_cape.config.invert.title": "Invert Behaviour",
+  "elytra_only_cape.config.invert.description": "Show the cape when not wearing an Elytra and hide it when wearing it.",
+  "elytra_only_cape.config.fallback.title": "Disabled Behaviour",
+  "elytra_only_cape.config.fallback.description": "What happens with the cape if the mod is not active (multiplayer with singleplayer mode or completely disabled).",
+  "elytra_only_cape.config.fallback.option.show": "Always Show Cape",
+  "elytra_only_cape.config.fallback.option.hide": "Always Hide Cape",
+  "elytra_only_cape.config.fallback.option.keep": "Use Vanilla Menu",
+  "elytra_only_cape.config.advanced.title": "Advanced Options",
+  "elytra_only_cape.config.advanced.vanilla_button_enabled.title": "Always Enable Vanilla Toggle",
+  "elytra_only_cape.config.advanced.vanilla_button_enabled.description": "Always allow switching the cape with the vanilla cape toggle in the skin customisation. This is disabled by default because this mod will override it anytime you join a world or change your chest slot."
 }

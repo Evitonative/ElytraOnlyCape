@@ -1,6 +1,9 @@
 package de.evitonative.elytra_only_cape.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import de.evitonative.elytra_only_cape.CapeToggleHelper;
+import de.evitonative.elytra_only_cape.config.FallbackMode;
+import de.evitonative.elytra_only_cape.config.ModConfig;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.options.SkinCustomizationScreen;
@@ -29,14 +32,17 @@ public class SkinCustomizationScreenMixin {
             @Local(name = "widgets") List<AbstractWidget> widgets,
             @Local(name = "part") PlayerModelPart part
     ) {
-        if (part == PlayerModelPart.CAPE) {
-            AbstractWidget widget = widgets.getLast();
-            widget.active = false;
-            widget.setTooltip(
-                Tooltip.create(
-                        Component.translatable("tooltip.elytra_only_cape.disabled_button")
-                )
-            );
-        }
+        if (part != PlayerModelPart.CAPE) return;
+
+        if (ModConfig.instance.alwaysShowVanillaButton) return;
+        if (ModConfig.instance.fallbackMode == FallbackMode.KEEP && !CapeToggleHelper.isActiveInEnvironment()) return;
+
+        AbstractWidget widget = widgets.getLast();
+        widget.active = false;
+        widget.setTooltip(
+            Tooltip.create(
+                    Component.translatable("elytra_only_cape.vanilla_button.tooltip")
+            )
+        );
     }
 }
