@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        if (FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3")) return YaclScreenBuilder::createScreen;
-        else return null;
+        if (!FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3")) return null;
+        return YaclScreenBuilder::createScreen;
     }
 }
