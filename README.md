@@ -1,10 +1,10 @@
 # Elytra Only Cape
-Fabric client-side Minecraft mod that shows and hides you cape based on if you are wearing an Elytra.
+Fabric client-side Minecraft mod that shows and hides your cape based on if you are wearing an Elytra.
 
-![Gif of the cape turning on when equipping the eltyra and turning off when unequipping it.](https://github.com/user-attachments/assets/8e06f725-82a4-4c64-bbcd-9016a274c32f)
+![Gif of the cape turning on when equipping the eltytra and turning off when unequipping it.](https://github.com/user-attachments/assets/8e06f725-82a4-4c64-bbcd-9016a274c32f)
 
 ## 🌟 Features
-* Automatic toggling of your cape based on if you are wearing an elytra or not.
+* Automatic toggling of your cape based on whether you are wearing an elytra or not.
 * Fully Configurable (requires ModMenu and YACL)
   * Disable the Mod or only use it in singleplayer
   * Server white- and blacklist
