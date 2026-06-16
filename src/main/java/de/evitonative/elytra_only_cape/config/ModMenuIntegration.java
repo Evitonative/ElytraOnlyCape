@@ -40,7 +40,7 @@ public class ModMenuIntegration implements ModMenuApi {
                             .translatable("elytra_only_cape.yacl_missing.description")
                             .withStyle(ChatFormatting.RED),
                     URI.create(stringBuilder.toString()),
-                    () -> minecraft.setScreen(parent)
+                    () -> minecraft.gui.setScreen(parent)
             );
         };
     }

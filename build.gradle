@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.16-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -29,16 +29,17 @@ dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    localRuntime 'net.litetex.mcm:dev-auth-neo:1.1.1'
 
     implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+
+    localRuntime "net.litetex.mcm:dev-auth-neo:${project.dev_auth_neo}"
 }
 
 loom {
     runs {
         client {
-            vmArg "-Ddevauth.enabled=1"
+            getJvmArguments().add "-Ddevauth.enabled=1"
         }
     }
 }

@@ -6,6 +6,7 @@ import de.evitonative.elytra_only_cape.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.client.server.IntegratedServer;
 import net.minecraft.world.entity.player.PlayerModelPart;
 
 public class CapeToggleHelper {
@@ -47,7 +48,7 @@ public class CapeToggleHelper {
 
         Minecraft minecraft = Minecraft.getInstance();
         boolean isInMenu = minecraft.player == null;
-        boolean isSinglePlayer = minecraft.isSingleplayer() && !isInMenu;
+        boolean isSinglePlayer = isSingleplayer(minecraft) && !isInMenu;
 
         if (isSinglePlayer) return true;
         if (env == ActiveEnvironment.SINGLEPLAYER) return false;
@@ -64,5 +65,10 @@ public class CapeToggleHelper {
 
         return ModConfig.instance.serverWhitelist.stream()
                 .anyMatch(ip -> ip.toLowerCase().equals(currentIp));
+    }
+
+    public static boolean isSingleplayer(Minecraft minecraft) {
+        IntegratedServer singleplayerServer = minecraft.getSingleplayerServer();
+        return singleplayerServer != null && !singleplayerServer.isPublished();
     }
 }
