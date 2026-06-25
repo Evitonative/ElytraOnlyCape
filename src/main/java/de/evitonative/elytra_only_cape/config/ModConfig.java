@@ -17,7 +17,7 @@ public class ModConfig {
     public ActiveEnvironment modActiveEnvironment = ActiveEnvironment.ANY;
     public boolean invertBehaviour = false;
     public FallbackMode fallbackMode = FallbackMode.KEEP;
-    public boolean serverWhitelistEnabled = true;
+    public boolean serverWhitelistEnabled = false;
     public boolean whitelistRealms = true;
     public List<String> serverWhitelist = new LinkedList<>();
     public List<String> serverBlacklist = new LinkedList<>();
