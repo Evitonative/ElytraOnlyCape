@@ -47,10 +47,10 @@ public class CapeToggleHelper {
             return false;
 
         Minecraft minecraft = Minecraft.getInstance();
-        boolean isInMenu = minecraft.player == null;
-        boolean isSinglePlayer = isSingleplayer(minecraft) && !isInMenu;
 
-        if (isSinglePlayer) return true;
+        boolean isInMenu = minecraft.player == null;
+        if (isInMenu) return false;
+        if (isSingleplayer(minecraft)) return true;
         if (env == ActiveEnvironment.SINGLEPLAYER) return false;
 
         ServerData currentServer = minecraft.getCurrentServer();
@@ -62,6 +62,8 @@ public class CapeToggleHelper {
                 .anyMatch(ip -> ip.toLowerCase().equals(currentIp))) return false;
 
         if (!ModConfig.instance.serverWhitelistEnabled) return true;
+
+        if (ModConfig.instance.whitelistRealms && currentServer.isRealm()) return true;
 
         return ModConfig.instance.serverWhitelist.stream()
                 .anyMatch(ip -> ip.toLowerCase().equals(currentIp));
