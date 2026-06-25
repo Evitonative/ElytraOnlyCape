@@ -51,6 +51,13 @@ public class YaclScreenBuilder {
                                 () -> ModConfig.instance.serverWhitelistEnabled,
                                 newVal -> ModConfig.instance.serverWhitelistEnabled = newVal
                         ))
+                        // Server Whitelist Enabled
+                        .option(YaclOptionsFactory.createOption(
+                                "whitelist_realms",
+                                true,
+                                () -> ModConfig.instance.whitelistRealms,
+                                newVal -> ModConfig.instance.whitelistRealms = newVal
+                        ))
                         // Server Whitelist
                         .option(YaclOptionsFactory.createOption(
                                 "whitelist",

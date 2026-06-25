@@ -17,6 +17,8 @@
   "elytra_only_cape.config.fallback.option.keep": "Use Vanilla Menu",
   "elytra_only_cape.config.whitelist_enabled.title": "Enable Server Whitelist",
   "elytra_only_cape.config.whitelist_enabled.description": "Only enable the mod for whitelisted servers.",
+  "elytra_only_cape.config.whitelist_realms.title": "Whitelist all Realms",
+  "elytra_only_cape.config.whitelist_realms.description": "Treat all realms as whitelisted.",
   "elytra_only_cape.config.whitelist.title": "Server Whitelist",
   "elytra_only_cape.config.whitelist.description": "When the whitelist is enabled, the mod will only work on servers with these IP addresses or domains.",
   "elytra_only_cape.config.blacklist.title": "Server Blacklist",
